@@ -1,0 +1,45 @@
+<script>
+var masuk = prompt('Masuk Jam Berapa?') 
+masuk = parseInt(masuk)
+var waktu = prompt('jam ' + masuk + ' Pagi Atau Malam \n (1. pagi / 2.Malam)')
+
+if(waktu == 2){
+    masuk += 12 
+}
+
+var keluar = parseInt(prompt('Keluar Jam Berapa?')) 
+var waktu2 = prompt('Jam ' + keluar + ' Pagi Atau Malam \n (1. pagi / 2.Malam)') 
+if(waktu2 == 2){
+    keluar += 12
+}
+if(masuk > keluar){
+    keluar += 24 
+}
+
+var totalJam = keluar - masuk 
+alert('Anda Parkir Selama ' + totalJam + ' jam')
+if(totalJam < 2){
+    var biaya = 3000
+}else{
+    var biaya = (2*3000) + (totalJam-2) * 1000
+}
+
+alert('Anda Harus Bayar Rp. ' + biaya)
+
+
+// 4 Kali Prompt
+// 1 .  Masuk Jam berapa 
+// 2 . am/pm am
+// 3 . Keluar Jam Berapa 
+// 4 . am/pm am
+// Ketentuan 2 Jam pertama = 3000/perjam 
+//             Jam Berikutnya = 1000/perJam
+
+
+// == operator comparison
+// === type data harus sama
+// operator comparison menghasilkan boolean
+// += dia menjumlahkan value sebelumnya dengan value baru
+// ! kebalikan
+
+</script>

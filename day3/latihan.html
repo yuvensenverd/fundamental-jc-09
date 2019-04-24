@@ -1,0 +1,22 @@
+<script>
+var berat = prompt('Masukan berat Badan anda?')
+berat = parseInt(berat)
+var tinggi = prompt('Masukan Tinggi Badan? (cm)')
+tinggi = parseInt(tinggi)
+tinggi = tinggi/100
+
+var imt = berat / (tinggi*tinggi)
+
+if(imt < 18.5){
+    alert('BB Kurang')
+}else if(imt > 18.5 && imt < 24.9){
+    alert('BB Ideal')
+}else if(imt > 25 && imt < 29.9){
+    alert('BB Berlebih')
+}else if(imt > 30 && imt < 39.9){
+    alert('BB Sangat Berlebih')
+}else{
+    alert('Obesitas')
+}
+
+</script>

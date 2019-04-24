@@ -1,0 +1,39 @@
+<script>
+// Aplikasi Parkir
+// pertama prompt = berangkat jam berapa (1 - 12) //6
+// prompt = pulang jam berapa (1-12) // 4
+// alert biaya parkir = 
+// biaya parkir 2000per jam
+
+var masuk = parseInt(prompt('Masuk Jam berapa?')) // 6
+var waktu = prompt('Jam ' + masuk + ' Pagi Atau Malam? /n (1. Pagi / 2. Malam)')
+if(waktu == 2){
+    masuk = masuk + 12
+}
+var keluar = parseInt(prompt('Masukan Jam Keluar?')) //4
+var waktu2 = prompt('jam ' + keluar + ' Pagi atau Malam? (1. Pagi / 2.Malam)' )
+if(waktu2 == 2){
+    keluar = keluar + 12
+}
+var totalJam = keluar - masuk 
+if(totalJam > 2){
+    var biaya = 6000 + ((totalJam-2) * 1000)
+}else{
+    var biaya = totalJam * 3000
+}
+
+alert('Anda Parkir Selama ' 
+      + totalJam +', Biaya Parkir adalah ' + biaya)
+
+// 4 Kali Prompt
+// 1 .  Masuk Jam berapa 
+// 2 . am/pm am
+// 3 . Keluar Jam Berapa 
+// 4 . am/pm am
+// Ketentuan 2 Jam pertama = 3000/perjam 
+//             Jam Berikutnya = 1000/perJam
+
+// WEB PROGRAMMING UNPAS
+</script>
+
+

@@ -1,0 +1,20 @@
+<script>
+var teks = 'Mau Belanja Apa ? \n 1. Jeruk Rp.10000 \n 2. Anggur Rp.15000 \n 3. Leci Rp.20000'
+var pilihan = prompt(teks)
+// total = harga*qty
+var harga = 0
+if(pilihan == 1){
+    harga = 10000
+}else if(pilihan == 2){
+    harga = 15000
+}else if(pilihan==3){
+    harga = 20000
+}
+var qty = prompt('Mau Belanja Berapa?')
+
+var total = harga * qty
+
+alert('Total Belanja = Rp.' + total)
+
+
+</script>

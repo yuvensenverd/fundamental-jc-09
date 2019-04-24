@@ -1,0 +1,62 @@
+<script>
+
+    var menu = prompt('Menu \n 1. Belanja \n 2. Belajar')
+    if(menu == 1){
+        var menuBelanja = prompt('Menu \n 1.Ayam Rp. 10.000 \n 2. Sapi Rp. 15000 \n 3. Salmon Rp. 20.000')
+        var harga = 0
+        if(menuBelanja == 1){
+            harga = 10000
+        }else if(menuBelanja == 2){
+            harga = 15000
+        }else if(menuBelanja == 3){
+            harga = 20000
+        }else{
+            alert('Anda Salah Input')
+        }
+
+        var qty = prompt('Mau Belanja Berapa?')
+        var total = harga*qty
+        alert('Anda Harus Bayar ' + total)
+        // Menu Belanja
+    }else if(menu == 2){
+        var menuBelajar = prompt('Menu \n 1.Luas Segitiga \n 2. Luas Persegi \n 3. Volume Balok')
+        if(menuBelajar ==1){
+            var alas = prompt('Masukan Alas Segitiga')
+            var tinggi = prompt('Masukan Tinggi Segitiga')
+            alert('Luas Segitiga adalah ' + (0.5 * alas *tinggi) + ' m2')
+        }else if(menuBelajar == 2){
+            var sisi = prompt('Masukan Sisi Persegi')
+            alert('Luas Persegi adalah ' + (sisi*sisi) + ' m2')
+        }else if(menuBelajar == 3){
+            var panjang = prompt('Masukan Panjang Balok?')
+            var lebar = prompt('Masukan lebar Balok?')
+            var tinggi = prompt('Masukan tinggi Balok?')
+            alert('Volume Balok Adalah ' + (panjang*lebar*tinggi) + ' m3')
+        }else {
+            alert('Anda Salah Input')
+        }
+        // Menu Belajar
+    }else{
+        alert('Inputan Salah')
+    }
+// Aplikasi Sederhana
+// prompt = menu 1.  Belanja 
+//               2.  Belajar
+
+// kalau user pilih belanja 
+// menu Ayam Rp. 10000
+//      Sapi Rp. 20000
+//      Salmon Rp. 30000
+// Mau Berapa Buah ? 
+// Alert (total harga)
+
+// Kalau user pilih belajar
+// menu luas Segitiga
+//      luas Persegi
+//      volume balok
+// segitiga => alas, tinggi
+// persegi  => sisi
+// balok => panjang, lebar, tinggi  
+
+
+</script>
