@@ -33,9 +33,13 @@
 //     console.log('masuk')
 // }
 
-var angka = 25
-var angka = 39
-console.log(angka)
+// var angka = 25
+// var angka = 39
+// console.log(angka)
+
+var angka = 'asdsafasf'
+
+console.log(angka > 0)
 
 
 

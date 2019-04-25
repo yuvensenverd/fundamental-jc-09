@@ -1,8 +1,24 @@
 <script>
-
-    var menu = prompt('Menu \n 1. Belanja \n 2. Belajar')
+    var proteksi = 1
+    while(proteksi == 1){
+        var menu = prompt('Menu \n 1. Belanja \n 2. Belajar')
+        if(menu == 1 || menu == 2){
+            proteksi = 2
+        }else{
+            alert('Anda Salah Input')
+        }
+    }
     if(menu == 1){
-        var menuBelanja = prompt('Menu \n 1.Ayam Rp. 10.000 \n 2. Sapi Rp. 15000 \n 3. Salmon Rp. 20.000')
+        var proteksiBelanja = true
+        do{
+            var menuBelanja = prompt('Menu \n 1.Ayam Rp. 10.000 \n 2. Sapi Rp. 15000 \n 3. Salmon Rp. 20.000')
+            if(menuBelanja == 1 || menuBelanja == 2 || menuBelanja ==3){
+                proteksiBelanja = false
+            }else{
+                alert('Inputan Salah')
+            }
+
+        }while(proteksiBelanja)
         var harga = 0
         if(menuBelanja == 1){
             harga = 10000
@@ -14,12 +30,28 @@
             alert('Anda Salah Input')
         }
 
-        var qty = prompt('Mau Belanja Berapa?')
+        var proteksiQty = true
+        do{
+            var qty = prompt('Mau Belanja Berapa?')
+            if(qty > 0){
+                proteksiQty = false
+            }else{
+                alert('Anda Salah inputan')
+            }
+        }while(proteksiQty == true)
         var total = harga*qty
         alert('Anda Harus Bayar ' + total)
         // Menu Belanja
     }else if(menu == 2){
-        var menuBelajar = prompt('Menu \n 1.Luas Segitiga \n 2. Luas Persegi \n 3. Volume Balok')
+        var proteksiBelajar = 1
+        while(proteksiBelajar == 1){
+            var menuBelajar = prompt('Menu \n 1.Luas Segitiga \n 2. Luas Persegi \n 3. Volume Balok')
+            if(menuBelajar == 1 || menuBelajar == 2 || menuBelajar ==3){
+                proteksiBelajar = 'asdadasdassdasd'
+            }else{
+                alert('Anda Salah Inputan')
+            }
+        }
         if(menuBelajar ==1){
             var alas = prompt('Masukan Alas Segitiga')
             var tinggi = prompt('Masukan Tinggi Segitiga')
