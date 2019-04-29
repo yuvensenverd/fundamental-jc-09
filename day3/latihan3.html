@@ -53,8 +53,25 @@
             }
         }
         if(menuBelajar ==1){
-            var alas = prompt('Masukan Alas Segitiga')
-            var tinggi = prompt('Masukan Tinggi Segitiga')
+            var proteksiSegitiga = true
+            do{
+                var alas = prompt('Masukan Alas Segitiga')
+                if(alas > 0){
+                    proteksiSegitiga = false
+                }else{
+                    alert('Anda Salah Inputan')
+                }
+            }while(proteksiSegitiga == true)
+
+            var protTinggiSegitiga = true
+            while(protTinggiSegitiga){
+                var tinggi = prompt('Masukan Tinggi Segitiga')
+                if(tinggi > 0) {
+                    protTinggiSegitiga = false
+                }else{
+                    alert('Anda Salah input')
+                }
+            }
             alert('Luas Segitiga adalah ' + (0.5 * alas *tinggi) + ' m2')
         }else if(menuBelajar == 2){
             var sisi = prompt('Masukan Sisi Persegi')
