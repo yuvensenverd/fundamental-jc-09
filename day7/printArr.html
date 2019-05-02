@@ -1,0 +1,51 @@
+<script>
+    var product = ['Anggur','Jeruk','Apel']
+    var harga = [12000,13500,25000]
+
+    function printData(){
+        var output = ''
+        for(var i =0 ; i < product.length ; i++){ //0
+            output += (i+1) +'. ' + product[i] + ' Rp. ' + harga[i]
+            output += '\n'
+        }
+        return output
+    }
+        alert(printData())
+    do{
+        var menuUtama = true
+        var menu = prompt('1. Tambah Data \n 2.Edit Data \n 3.Exit')
+        
+        if(menu == '1'){
+            var lagi = true
+            while(lagi == true){
+                var newProd = prompt('Masukan Product Baru')
+                var newPrice = prompt('Masukan Harga Baru')
+                product.push(newProd)
+                harga.push(newPrice)
+
+                alert(printData())
+
+                lagi = confirm('mau lagi?')
+            }
+        }else if(menu==2){
+            alert(printData())
+            var data = prompt('Data mana yang mau di edit')//1
+            var newData = prompt('Mau ubah ' + product[data-1] +' menjadi apa?')
+            product[data-1] = newData
+            alert(printData())
+        }else if(menu==3){
+            menuUtama=false
+        }
+    }while(menuUtama==true)
+
+
+    // aplikasi 
+    
+    
+
+    
+    
+        
+    
+
+</script>
