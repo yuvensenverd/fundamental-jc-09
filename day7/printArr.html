@@ -7,13 +7,14 @@
         for(var i =0 ; i < product.length ; i++){ //0
             output += (i+1) +'. ' + product[i] + ' Rp. ' + harga[i]
             output += '\n'
+            // output = '1. Anggur Rp. 12000 \n 2. Jeruk Rp. 13500'
         }
         return output
     }
         alert(printData())
     do{
         var menuUtama = true
-        var menu = prompt('1. Tambah Data \n 2.Edit Data \n 3.Exit')
+        var menu = prompt('1. Tambah Data \n 2.Edit Data \n 3.Delete Data \n 4.Exit')
         
         if(menu == '1'){
             var lagi = true
@@ -29,17 +30,41 @@
             }
         }else if(menu==2){
             alert(printData())
-            var data = prompt('Data mana yang mau di edit')//1
-            var newData = prompt('Mau ubah ' + product[data-1] +' menjadi apa?')
-            product[data-1] = newData
-            alert(printData())
+            var pilihanEdit = prompt('1. Edit Harga \n2.Edit Nama')
+            if(pilihanEdit == 1){
+                var text = printData()
+                text += 'Data mana yang mau di edit'
+                var data = prompt(text)//1
+                var newData = prompt('Mau ubah ' + harga[data-1] +' menjadi apa?')
+                harga[data-1] = newData
+                alert(printData())
+            }else if(pilihanEdit == 2){
+                var text = printData()
+                text += 'Data mana yang mau di edit'
+                var data = prompt(text)//1
+                var newData = prompt('Mau ubah ' + product[data-1] +' menjadi apa?')
+                product[data-1] = newData
+                alert(printData())
+            }
+            
         }else if(menu==3){
-            menuUtama=false
+            var text = printData()
+            text += '\nMau Hapus Yang Mana?'
+            var pilihan = prompt(text)
+            var confirmDelete = confirm('Apakah kamu yakin mau hapus ' + product[pilihan-1])
+            if(confirmDelete == true){
+                product.splice(pilihan-1,1)
+                alert(printData())
+            }
+            
+        }else if(menu == 4){
+            menuUtama = false
         }
     }while(menuUtama==true)
 
 
-    // aplikasi 
+    // edit harga
+    // delete data 
     
     
 
