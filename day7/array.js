@@ -84,8 +84,115 @@
 
 
 
-var arr = ['Anggur','Jeruk','Leci']
-delete arr[0]
+// var arr = ['Anggur','Jeruk','Leci']
+// delete arr[0]
 
-console.log(arr)
+// console.log(arr)
+
+
+
+
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+
+// *
+// **
+// ***
+// ****
+// *****
+
+var bintang = '*\n**\n***\n****\n*****'
+// console.log(bintang)
+
+var output = '*\n*\n*\n*\n*\n'
+
+for(var i =0 ; i<6 ; i++){
+    for(var j = 0;j <= i ;j++){
+        output += '*'
+    }
+
+    output += '\n'
+}
+
+output = '*\n**'
+
+var arrMobil = ['Avanza', 'Xenia','Ayla']
+var arr = ['Jeruk','Apel','Anggur','Kiwi']
+
+function PrintDataArray(param1){
+    var printArray = ''
+    for(var k= 0 ; k<param1.length ;k++){
+        printArray += param1[k] + ' '
+    }
+    console.log(printArray)
+}
+
+PrintDataArray(arrMobil)
+PrintDataArray(arr)
+
+
+function Repeat(arr){
+    var a = 1;
+    var b = 0;
+    var c = 0;
+    var d = 0;
+    var e = 0;
+    for(var i = 0 ; i< arr.length ; i++){
+        if(arr[i] == 'a'){
+            a++
+            if(a == 2){
+                return 'a'
+            }
+        }else if(arr[i] =='b'){
+            b++
+            if(b == 2){
+                return 'b'
+            }
+        }else if(arr[i] == 'c'){
+            c++
+            if(c == 2){
+                return 'c'
+            }
+        }else if(arr[i] =='d'){
+            d++
+            if(d == 2){
+                return 'd'
+            }
+        }else if(arr[i] == 'e'){
+            e++
+            if(e == 2){
+                return 'e'
+            }
+        }
+    }
+
+}
+
+function Repeat2 (a){
+    for(var satu = 0; satu < a.length; satu ++){
+        for(var dua = satu + 1 ; dua < a.length ; dua++){
+            if(a[satu] == a[dua]){
+                return a[satu]
+            }
+        }
+    }
+}
+
+console.log(Repeat(['a','b','c','d','e','e'])) // b
+Repeat(['b','a','d','a','d']) // a
+
+
+
+
+
+
+
+
+
+
+
+
 
