@@ -1,0 +1,73 @@
+<script>
+    var product = ['Kiwi','Jeruk']
+    var harga = [2000,3000]
+    var cart = []
+    var hargaCart = []
+    var qtyCart = []
+
+
+    // ==================== FUNCTIONS ===============
+    function PrintCart(a,b,c){
+        var hasil = ''
+        if(a.length == 0){
+            return 'Keranjang Kosong, Silahkan Berbelanja dahulu'
+        }
+        var totalHarga = 0
+        for(var i = 0 ; i < a.length ; i++){
+            hasil += (i+1) + '. ' +a[i] 
+            + ' Rp. ' + b[i] + ' X ' + c[i] + ' = ' + (b[i]*c[i]) + '\n'
+
+            totalHarga += b[i]*c[i]
+        }
+        hasil += '=================================\n'
+        hasil += 'Total Harga =  Rp. ' + totalHarga
+        return hasil
+    }
+
+
+    function PrintMenu(prod,price){
+        var hasil = ''
+        for(var i = 0 ; i < prod.length ; i++){
+            hasil += (i+1) + '. ' + prod[i] + ' Rp. ' + price[i] + '\n'
+        }
+        return hasil
+    }   
+
+
+
+
+    // ================= PROGRAMS ========================
+    var a = '1.User \n 2.admin \n 3.Exit'
+    do{
+        var menuUtama = true
+        var menuLogin =  prompt(a)
+
+        // ================= MENU USER ======================
+        if(menuLogin == 1){
+            do{
+                var menuUtamaUser = true
+                var menuUser =  prompt('1. Show Cart \n 2. Belanja')
+                if(menuUser == 1){
+                    var text = PrintCart(cart,hargaCart,qtyCart)
+                    alert(text)
+                }
+                menuUtamaUser = confirm('Mau Ke Menu User Lagi?')
+            }while(menuUtamaUser == true)
+            
+        }else if(menuLogin == 2){
+
+        // ================= MENU ADMIN ======================
+            prompt('1. Show Product \n 2. Add Product \n 3. Update \n 4. Delete')
+        }else if(menuLogin ==3){
+            menuUtama = false
+        }
+        if(menuUtama == true){
+            menuUtama = confirm('Mau Ke Menu Utama?')
+        }
+    }while(menuUtama == true)
+    
+
+
+
+
+</script>
