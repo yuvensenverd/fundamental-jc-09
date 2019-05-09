@@ -103,6 +103,15 @@ console.log(Tanggal('22042017'))
 // Tanggal('01012000') // 01-Jan-2000
 
 
+var arrayKu = [
+    ['Andi',24,'PNS'],
+    ['Budi',28,'Pengacara'],
+    ['Caca',21,'Siswa'],
+]
+
+arrayKu[1][2]
+
+
 
 
 
