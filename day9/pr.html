@@ -16,23 +16,32 @@
     //
     //
     //
-    var cart = ['Jeruk' , 'Kiwi']
-    var hargaCart = [3000,2000]
-    var qtyCart = [4,3]
 
+    class Cart {
+        constructor(a,b,c){
+            this.namaProduk = a;
+            this.harga = b;
+            this.qty = c
+        }
+    }
+
+    var cart = [
+        new Cart('Jeruk' , 3000 , 4),
+        new Cart('Kiwi' , 2000 , 3)
+    ]
 
     // ==================== FUNCTIONS ===============
-    function PrintCart(a,b,c){
+    function PrintCart(cart){
         var hasil = ''
-        if(a.length == 0){
+        if(cart.length == 0){
             return 'Keranjang Kosong, Silahkan Berbelanja dahulu'
         }
         var totalHarga = 0
-        for(var i = 0 ; i < a.length ; i++){
-            hasil += (i+1) + '. ' +a[i] 
-            + ' Rp. ' + b[i] + ' X ' + c[i] + ' = ' + (b[i]*c[i]) + '\n'
+        for(var i = 0 ; i < cart.length ; i++){
+            hasil += (i+1) + '. ' +cart[i].namaProduk 
+            + ' Rp. ' + cart[i].harga + ' X ' + cart[i].qty + ' = ' + (cart[i].harga*cart[i].qty) + '\n'
 
-            totalHarga += b[i]*c[i]
+            totalHarga += cart[i].harga * cart[i].qty
         }
         hasil += '=================================\n'
         hasil += 'Total Harga =  Rp. ' + totalHarga
@@ -63,29 +72,31 @@
                 var menuUtamaUser = true
                 var menuUser =  prompt('1. Show Cart \n 2. Belanja \n 3. Exit')
                 if(menuUser == 1){
-                    var text = PrintCart(cart,hargaCart,qtyCart)
+                    var text = PrintCart(cart)
                     alert(text)
                 }else if(menuUser == 2){
 
                     var text = PrintMenu(product)
                     text += '=====================\n Mau Belanja Yang Mana'
                     var pilihanBelanja = prompt(text) // 1
-                    var qtyBelanja = prompt('Mau Berapa Banyak ' + product[pilihanBelanja-1] +' Yang Anda Beli?' )
+                    var qtyBelanja = prompt('Mau Berapa Banyak ' + product[pilihanBelanja-1].nama +' Yang Anda Beli?' )
                     var ada = false
                     var index = 0 //1
                     for(var i = 0 ; i < cart.length ; i++){
-                        if(cart[i] == product[pilihanBelanja-1]){
+                        if(cart[i].namaProduk == product[pilihanBelanja-1].nama){
                             ada = true
                             index = i
                         }
                     }
 
                     if(ada == true){
-                        qtyCart[index] += parseInt(qtyBelanja)
+                        cart[index].qty += parseInt(qtyBelanja)
                     }else{
-                        cart.push(product[pilihanBelanja-1])
-                        hargaCart.push(harga[pilihanBelanja-1])
-                        qtyCart.push(qtyBelanja)
+                       var namaProdukBaru = product[pilihanBelanja-1].nama
+                       var hargaProdukBaru = product[pilihanBelanja-1].harga
+                       var qtyProdukBaru = parseInt(qtyBelanja)
+                       var newCart = new Cart(namaProdukBaru,hargaProdukBaru,qtyProdukBaru)
+                       cart.push(newCart)
                     }
 
                     alert('Selamat Produk Berhasi Dimasukan Keranjang')
