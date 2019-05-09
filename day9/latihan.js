@@ -87,15 +87,42 @@
 // console.log(total)
 
 function Tanggal(a){
+    var arrBulan = 'jan feb mar apr may jun jul aug sept oct nov des'.split(' ')
     var arrTanggal = a.split('')
     var hari = arrTanggal[0] + arrTanggal[1]
-    var bulan = arrTanggal[2] + arrTanggal[3]
+    var bulan = arrTanggal[2] + arrTanggal[3]  // 1
     var tahun = arrTanggal[4] + arrTanggal[5] + arrTanggal[6] + arrTanggal[7]
-    return hari + '-' + bulan + '-' + tahun
+    return hari + '-' + arrBulan[parseInt(bulan) - 1] + '-' + tahun
 }
 
-console.log(Tanggal('22052019')) // 22-Mei-2019
-Tanggal('01012000') // 01-Jan-2000
+console.log(Tanggal('22012019'))
+console.log(Tanggal('01042012')) // 22-Mei-2019
+console.log(Tanggal('02052018'))
+console.log(Tanggal('31032019'))
+console.log(Tanggal('22042017'))
+// Tanggal('01012000') // 01-Jan-2000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
