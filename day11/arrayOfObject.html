@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Latihan</title>
+    <style>
+        tr,td,table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px
+        }
+    </style>
+</head>
+<body>
+    <h1>Latihan Array Of Object</h1>
+    <center>
+        <table>
+            <thead>
+                <tr>
+                    <td>NO</td>
+                    <td>TODO</td>
+                    <td>HARI</td>
+                    <td>IMG</td>
+                    <td>ACT</td>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </center>
+
+    <script>
+        class Todo {
+            constructor(a,b,c){
+                this.hari = a,
+                this.content = b,
+                this.img = c
+            }
+        }
+
+        var data = [
+            new Todo('Senin' , 'Belajar' , 'https://learningfan.com/wp-content/uploads/2018/06/2.jpg'),
+            new Todo('Selasa' , 'Shopping', 'https://www.bandt.com.au/information/uploads/2014/07/iStock_000033090244_Medium-1260x840.jpg'),
+            new Todo('Rabu' , 'Olahraga' , 'http://cdn2.tstatic.net/wartakota/foto/bank/images/lari_20180705_092514.jpg'),
+        ]
+
+        var output = ''
+        for(var i = 0 ; i < data.length ; i++){
+            output += `<tr>
+                            <td>${i+1}</td>
+                            <td>${data[i].content}</td>
+                            <td>${data[i].hari}</td>
+                            <td><img src=${data[i].img} width='100px'></td>
+                            <td><input type='button' value='delete' ></td>
+                        </tr>`
+        }
+
+        
+
+        document.getElementsByTagName('tbody')[0].innerHTML = output
+        
+    </script>
+</body>
+</html>

@@ -95,8 +95,8 @@
                        var namaProdukBaru = product[pilihanBelanja-1].nama
                        var hargaProdukBaru = product[pilihanBelanja-1].harga
                        var qtyProdukBaru = parseInt(qtyBelanja)
-                       var newCart = new Cart(namaProdukBaru,hargaProdukBaru,qtyProdukBaru)
-                       cart.push(newCart)
+                       var newCart = 
+                       cart.push({namaProdukBaru , hargaProdukBaru, qtyProdukBaru})
                     }
 
                     alert('Selamat Produk Berhasi Dimasukan Keranjang')

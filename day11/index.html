@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Latihan HTML</title>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <input type="text" id="textInput" placeholder="masukan nama" >
+        <input type="number" id="umur" placeholder="masukan umur" >
+        <button onclick="GetNama()">Click</button>
+
+    <script>
+        alert('masuk')
+        function GetNama(){
+            var nama =  document.getElementById('textInput').value
+            var umur = document.getElementById('umur').value
+            var text = ''
+            if(umur < 30){
+                text = ' Saya Masih Muda'
+            }else{
+                text = ' Saya Sudah Tua'
+            }
+            document.getElementsByTagName('h1')[0].innerHTML = 'Nama saya ' 
+            + nama + text
+
+            document.getElementById('textInput').value = ''
+            document.getElementById('umur').value = ''
+        }
+
+        // SELECTOR
+        // EVENTS
+        
+
+    </script>
+    </body>
+</html>
+

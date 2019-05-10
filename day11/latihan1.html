@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Latihan</title>
+</head>
+<body>
+    <h1>Latihan Dom</h1>
+    <input type="number" placeholder="jam masuk">
+    <br>
+    <input type="number" placeholder="jam keluar">
+    <br>
+    <input type="button" onclick="hitungBiaya()" value="Hitung">
+    <br>
+    <p></p>
+
+    <script>
+        function hitungBiaya (){
+            var masuk = document.getElementsByTagName('input')[0].value
+            var keluar = document.getElementsByTagName('input')[1].value
+            var total = keluar - masuk
+            var totalBiaya = total * 1000
+            document.getElementsByTagName('p')[0].innerHTML = 'Anda Parkir Selama ' + total + ' Jam, biaya adalah Rp. ' + totalBiaya 
+        }
+    
+    </script>
+</body>
+</html>
