@@ -32,9 +32,9 @@
             <tfoot>
                 <tr>
                     <td></td>
-                    <td><input type="text" placeholder="todo"></td>
+                    <td><input type="text" class="addTodo" placeholder="todo"></td>
                     <td>
-                        <select>
+                        <select class="addTodo">
                             <option value="Senin">Senin</option>
                             <option value="Selasa">Selasa</option>
                             <option value="Rabu">Rabu</option>
@@ -42,8 +42,12 @@
                             <option value="Jumat">Jumat</option>
                         </select>
                     </td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <input class="addTodo" type="text" placeholder="enter image url">
+                    </td>
+                    <td>
+                        <input type="button" value="Add" onclick="AddTodo()">
+                    </td>
                 </tr>
             </tfoot>
         </table>
@@ -64,20 +68,38 @@
             new Todo('Rabu' , 'Olahraga' , 'http://cdn2.tstatic.net/wartakota/foto/bank/images/lari_20180705_092514.jpg'),
         ]
 
-        var output = ''
-        for(var i = 0 ; i < data.length ; i++){
-            output += `<tr>
-                            <td>${i+1}</td>
-                            <td>${data[i].content}</td>
-                            <td>${data[i].hari}</td>
-                            <td><img src=${data[i].img} width='100px'></td>
-                            <td><input type='button' value='delete' ></td>
-                        </tr>`
+        function PrintData (){
+            var output = ''
+            for(var i = 0 ; i < data.length ; i++){
+                output += `<tr>
+                                <td>${i+1}</td>
+                                <td>${data[i].content}</td>
+                                <td>${data[i].hari}</td>
+                                <td><img src=${data[i].img} width='100px'></td>
+                                <td><input type='button' value='delete' ></td>
+                            </tr>`
+            }
+
+            document.getElementsByTagName('tbody')[0].innerHTML = output
         }
-
         
+        function AddTodo (){
+            var input = document.getElementsByClassName('addTodo')
+            var todo = input[0].value
+            var hari = input[1].value
+            var img = input[2].value
+            
+            var newObj = new Todo(hari,todo,img)
 
-        document.getElementsByTagName('tbody')[0].innerHTML = output
+
+            data.push(newObj)
+            PrintData()
+            input[0].value = ''
+            input[2].value = ''
+            input[1].value = 'Senin'
+        }
+        PrintData()
+        
         
     </script>
 </body>
