@@ -51,6 +51,7 @@
                 </tr>
             </tfoot>
         </table>
+        <p id="error" style="color:red"> </p>
     </center>
 
     <script>
@@ -76,27 +77,47 @@
                                 <td>${data[i].content}</td>
                                 <td>${data[i].hari}</td>
                                 <td><img src=${data[i].img} width='100px'></td>
-                                <td><input type='button' value='delete' ></td>
+                                <td><input type='button' onclick="onBtnDeleteClick(${i})" value='delete' ></td>
                             </tr>`
             }
 
             document.getElementsByTagName('tbody')[0].innerHTML = output
         }
-        
+
+
+
+//  ============================================================================
         function AddTodo (){
             var input = document.getElementsByClassName('addTodo')
             var todo = input[0].value
             var hari = input[1].value
             var img = input[2].value
+
+            if(todo == '' || img == ''){
+                document.getElementById('error').innerHTML = 'Form Harus diisi'
+            }else{
+                document.getElementById('error').innerHTML = '' 
+
+                var newObj = new Todo(hari,todo,img)
+
+                data.push(newObj)
+                PrintData()
+                input[0].value = ''
+                input[2].value = ''
+                input[1].value = 'Senin'
+            }
             
-            var newObj = new Todo(hari,todo,img)
+        }
 
+        // ==============================================
 
-            data.push(newObj)
-            PrintData()
-            input[0].value = ''
-            input[2].value = ''
-            input[1].value = 'Senin'
+        function onBtnDeleteClick (index){
+            var konfirmasi = confirm('Apakah Anda ingin menghapus ' + data[index].content + ' Pada hari ' + data[index].hari)
+            if(konfirmasi == true){
+                data.splice(index , 1)
+                PrintData()
+            }
+            
         }
         PrintData()
         
