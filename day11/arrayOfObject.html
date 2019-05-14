@@ -77,7 +77,10 @@
                                 <td>${data[i].content}</td>
                                 <td>${data[i].hari}</td>
                                 <td><img src=${data[i].img} width='100px'></td>
-                                <td><input type='button' onclick="onBtnDeleteClick(${i})" value='delete' ></td>
+                                <td>
+                                    <input type='button' onclick="onBtnDeleteClick(${i})" value='delete' >
+                                    <input type='button' value='Edit' onclick="onBtnEditClick(${i})" >                                    
+                                </td>
                             </tr>`
             }
 
@@ -112,13 +115,22 @@
         // ==============================================
 
         function onBtnDeleteClick (index){
-            var konfirmasi = confirm('Apakah Anda ingin menghapus ' + data[index].content + ' Pada hari ' + data[index].hari)
-            if(konfirmasi == true){
+            if(confirm('Apakah Kamu ingin menghapus ' + data[index].content)){
                 data.splice(index , 1)
                 PrintData()
             }
-            
         }
+
+
+        // ==============================================
+        function onBtnEditClick (bebas){
+            var newTodo =  prompt(`Mau Edit  ${data[bebas].content}   Menjadi Apa?`)
+            var newHari =  prompt('Mau Edit ' + data[bebas].hari + ' Menjadi Apa?')
+            data[bebas].content = newTodo
+            data[bebas].hari = newHari
+            PrintData()
+        }
+
         PrintData()
         
         
