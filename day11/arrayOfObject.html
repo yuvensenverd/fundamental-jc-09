@@ -160,7 +160,7 @@
             var newData = []
             for(var i = 0 ; i < data.length ; i++){
                 if((data[i].hari == hari || hari == "" )
-                   && data[i].content.toLowerCase().includes(todo.toLowerCase())){
+                   && data[i].content.toLowerCase().startsWith(todo.toLowerCase())){
                     newData.push(data[i])
                 }
             }
