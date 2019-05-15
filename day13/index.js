@@ -26,16 +26,22 @@ console.log(Tambah('zxy' , 1000)) // bza
 
 
 
-
-
+// VAR diluar func, bisa diakses didalam func
+// VAR didalam func, tidak bisa diakses diluar func
 function IndexKeberapa(arr,str){
-
+    var hasil = arr.indexOf(str)
+    var hasil = ['b','z','u'].indexOf('p')
+    if(hasil >= 0){
+        return hasil
+    }else{
+        return 'Huruf Tidak Tersedia'
+    }
 }
 
-IndexKeberapa(['b','z','u'] , 'z') // 1
-IndexKeberapa(['c','a','b'] , 'z') // huruf tidak tersedia
-IndexKeberapa(['a','g','r'] , 'g') // 1
-IndexKeberapa(['a','r','t'] , 't') // 2
+console.log(IndexKeberapa(['b','z','u'] , 'z')) // 1
+console.log(IndexKeberapa(['c','a','b'] , 'z')) // huruf tidak tersedia
+console.log(IndexKeberapa(['a','g','r'] , 'g')) // 1
+console.log(IndexKeberapa(['a','r','t'] , 'a')) // 2
 
 
 
