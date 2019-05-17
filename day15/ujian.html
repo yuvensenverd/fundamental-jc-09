@@ -29,6 +29,21 @@
 
             </tbody>
         </table>
+        <h1>Keranjang</h1>
+        <h3></h3>
+        <table>
+            <thead>
+                <tr>
+                    <td>Nama</td>
+                    <td>Harga</td>
+                    <td>Image</td>
+                    <td>Act</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
     </center>
     <script>
     class Product {
@@ -43,6 +58,8 @@
         new Product('Luwak White' , 20000, 'https://cf.shopee.co.id/file/4b34e400c6cccc7e74827ee463c6686b'),
         new Product('Top Coffe' , 15000 , 'http://kopitop.com/uploads/product/white-coffe20161013160411-thumb.png'),
     ]
+
+    var cart = []
     function PrintMenu (){
         var output = ''
         for(var i = 0 ; i < menu.length ; i++){
@@ -51,13 +68,51 @@
                             <td>${menu[i].harga}</td>
                             <td><img src=${menu[i].img} width='100px'></td>
                             <td>
-                                <input type='button' value='Add to Cart' onclick="onBtnEditClick(${i})" >                                    
+                                <input type='button' value='Add to Cart' onclick="onBtnAddToCart(${i})" >                                    
                             </td>
                         </tr>`
         }
 
         document.getElementsByTagName('tbody')[0].innerHTML = output
     }
+
+    function printCart(){
+        var output = ''
+        for(var i = 0 ; i < cart.length ; i++){
+            output += `<tr>
+                            <td>${cart[i].nama}</td>
+                            <td>${cart[i].harga}</td>
+                            <td><img src=${cart[i].img} width='100px'></td>
+                            <td>
+                                <input type='button' value='Delete' onclick="onBtnAddToCart(${i})" >                                    
+                            </td>
+                        </tr>`
+        }
+
+        document.getElementsByTagName('tbody')[1].innerHTML = output
+    }
+
+    function checkIsiCart(){
+        if(cart.length > 0){
+            var totalHarga = 0
+            for(var i = 0 ; i < cart.length ; i++){
+                totalHarga += cart[i].harga
+            }
+            document.getElementsByTagName('h3')[0].innerHTML = 'Keranjang Anda ' + cart.length +'<br>total Belanja adalah ' + totalHarga
+        }else{
+            document.getElementsByTagName('h3')[0].innerHTML = 'Keranjang Anda kosong'
+        }
+    }
+
+    checkIsiCart()
+
+    // ============ ADD TO CART
+    function onBtnAddToCart(index){
+        cart.push(menu[index])
+        printCart()
+        checkIsiCart()
+    }
+
     PrintMenu()
     </script>
 </body>
