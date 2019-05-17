@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Latihan Ujian Fund</title>
+    <style>
+        table,tr,td{
+            border: 1px solid black;
+            padding: 10px;
+            border-collapse: collapse
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Pilih Menu</h1>
+        <table>
+            <thead> 
+                <tr>
+                    <td>Nama</td>
+                    <td>Harga</td>
+                    <td>Image</td>
+                    <td>Act</td>
+                </tr>
+            </thead>    
+            <tbody>
+
+            </tbody>
+        </table>
+    </center>
+    <script>
+    class Product {
+        constructor(a,b,c){
+            this.nama = a,
+            this.harga = b,
+            this.img = c
+        }
+    }
+    var menu = [
+        new Product('Kapal Api' , 12000 , 'http://cdn.elevenia.co.id/ex_t/R/348x348/1/85/1/src/g/9/9/3/9/3/9/16993939_B.jpg'),
+        new Product('Luwak White' , 20000, 'https://cf.shopee.co.id/file/4b34e400c6cccc7e74827ee463c6686b'),
+        new Product('Top Coffe' , 15000 , 'http://kopitop.com/uploads/product/white-coffe20161013160411-thumb.png'),
+    ]
+    function PrintMenu (){
+        var output = ''
+        for(var i = 0 ; i < menu.length ; i++){
+            output += `<tr>
+                            <td>${menu[i].nama}</td>
+                            <td>${menu[i].harga}</td>
+                            <td><img src=${menu[i].img} width='100px'></td>
+                            <td>
+                                <input type='button' value='Add to Cart' onclick="onBtnEditClick(${i})" >                                    
+                            </td>
+                        </tr>`
+        }
+
+        document.getElementsByTagName('tbody')[0].innerHTML = output
+    }
+    PrintMenu()
+    </script>
+</body>
+</html>

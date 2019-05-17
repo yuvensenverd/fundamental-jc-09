@@ -9,9 +9,9 @@ do{
     var input = prompt('masukan Angka')
     if(Number.isInteger( parseInt(input))){
         if(input % 2 ==0){
-            genap.push(input)
+            genap.push(parseInt(input))
         }else{
-            ganjil.push(input)
+            ganjil.push(parseInt(input))
         }
     }
 }while(Number.isInteger( parseInt(input)))
@@ -26,4 +26,32 @@ function PrintData(arr){
 var printGanjil = PrintData(ganjil)
 var printGenap = PrintData(genap)
 
-document.getElementById('hasil').innerHTML = 'Ganjil = ' + printGanjil + '<br>Genap = ' + printGenap 
+var totalGenap = 0
+for(var i = 0 ; i < genap.length ; i ++){
+    totalGenap += parseInt(genap[i])
+}
+
+var rataRataGenap = totalGenap/genap.length
+
+var totalGanjil = 0
+for(var i = 0 ; i < ganjil.length ; i ++){
+    totalGanjil += parseInt(ganjil[i])
+}
+
+var ArrAll = [...ganjil , ...genap]
+for(var i = ArrAll.length ; i > 0 ; i--){
+    for(var j = 0 ; j < i ; j ++){
+        if(ArrAll[j] < ArrAll[j+1]){
+            var temp = ArrAll[j]
+            ArrAll[j] = ArrAll[j+1]
+            ArrAll[j+1] = temp
+        }
+    }
+}
+
+var HasilSort = PrintData(ArrAll)
+document.getElementById('hasil').innerHTML = 'Ganjil = ' + printGanjil 
+                                           + '<br>Genap = ' + printGenap 
+                                           +  '<br>Rata-Rata Genap = ' + rataRataGenap 
+                                           + '<br>Jumlah Ganjil = ' + totalGanjil
+                                           + '<br> Sort Tinggi Ke Rendah = ' + HasilSort
