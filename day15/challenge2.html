@@ -41,12 +41,59 @@
                             <td>${arr[i][0]}</td>
                             <td>${arr[i][1]}</td>
                             <td>${arr[i][2]}</td>
+                            <td><input type = 'button' value='sort' onclick='sort(${i})'></td>
                         </tr>`
         }
+        output +=  `<tr>
+                        <td><input type = 'button' value='sort' onclick='sortVert(0)'></td>
+                        <td><input type = 'button' value='sort' onclick='sortVert(1)'></td>
+                        <td><input type = 'button' value='sort' onclick='sortVert(2)'></td>
+                        <td></td>
+                    </tr>`
         document.getElementById('hasil').innerHTML = output
 
     }
     tampilkan(arr)
+    var klik = 0
+    function sort(a){
+        if(klik % 2 == 0){
+            arr[a] = arr[a].sort(function(a,b) {
+                return b - a
+            })
+            klik++
+        }else{
+            arr[a] = arr[a].sort(function(a,b) {
+                return a - b
+            })
+            klik++
+        }
+
+       
+        tampilkan(arr)
+    }
+
+    function sortVert(index){
+        // pertama ambil value dari arr
+        // sort
+        // kembalikan
+        var arrNew = [arr[0][index], arr[1][index] ,arr[2][index]]
+        if(klik % 2 == 0){
+            arrNew = arrNew.sort(function(a,b) {
+                return b-a
+            })
+            klik ++
+        }else{
+            arrNew = arrNew.sort(function(a,b) {
+                return a-b
+            })
+            klik++
+        }
+        arr[0][index] = arrNew[0]
+        arr[1][index] = arrNew[1]
+        arr[2][index] = arrNew[2]
+        tampilkan(arr)
+    }
+
 
     function puterKanan(){
         var newArr = [
@@ -87,6 +134,8 @@
                     newArr[i][j] = arr[2-i][2-j]
                 }
             }
+        }else{
+            newArr = arr
         }
         arr = newArr
         tampilkan(arr)
@@ -130,6 +179,8 @@
                 }
             }
 
+        }else{
+            newArr = arr
         }
         arr = newArr
         tampilkan(arr)
