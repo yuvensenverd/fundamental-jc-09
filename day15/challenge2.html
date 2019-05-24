@@ -81,6 +81,12 @@
                     newArr[i][j] = arr[j][2-i]
                 }
             }
+        }else if(berapaKali % 4 ==2){
+            for(var i = 0 ; i < arr.length ; i++){
+                for(var j = 0 ; j < arr.length ; j ++){
+                    newArr[i][j] = arr[2-i][2-j]
+                }
+            }
         }
         arr = newArr
         tampilkan(arr)
@@ -111,6 +117,16 @@
             for(var i = 0 ; i < arr.length ; i ++){
                 for(var j = 0 ; j < newArr.length ; j ++){
                     newArr[i][j] = arr[j][2-i]
+                }
+            }
+
+        }else if(berapaKali % 4 == 2){
+            // newArr[0][0] = arr[2][2]
+            // newArr[0][1] = arr[2][1]
+            // newArr[0][2] = arr[2][0]
+            for(var i = 0 ; i < arr.length ; i++){
+                for(var j = 0 ; j < arr.length ; j ++){
+                    newArr[i][j] = arr[2-i][2-j]
                 }
             }
 
