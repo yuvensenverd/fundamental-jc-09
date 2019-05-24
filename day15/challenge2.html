@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Puter Array</title>
+    <style>
+        tr,td,table {
+            border: 1px solid black;
+            padding: 10px;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <center>
+
+    <table id="hasil">
+        
+    </table>
+    <br>
+    <input type="number" placeholder="berapaKali">
+    <br>
+    <br>
+    <input type="button" value="kiri" />
+    <input type="button" value="kanan" />
+</center>
+
+<script>
+    var arr = 
+    [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9],
+    ]
+    function tampilkan(a){
+        var output = ''
+        for(var i = 0 ; i < a.length; i++){
+            output += `<tr>
+                            <td>${arr[i][0]}</td>
+                            <td>${arr[i][1]}</td>
+                            <td>${arr[i][2]}</td>
+                        </tr>`
+        }
+        document.getElementById('hasil').innerHTML = output
+
+    }
+    tampilkan(arr)
+
+
+</script>
+</body>
+</html>
